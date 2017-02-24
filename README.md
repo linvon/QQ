@@ -10,7 +10,7 @@
 1.用户上下线 <br>
 在调试的过程中，我们还需要能及时反应用户的状态，以便在好友列表中显示。用户在上线后，服务器在确认该用户登陆成功的同时也会向当前所有在线的该用户好友发送其状态改变的消息。在处理用户下线时曾经遇到一个问题，如果用TCP/IP的连接成功与否来判断用户状态，在多个客户端同时工作时会出现问题，所以考虑在用户下线时给服务器发送下线消息，以便更改其状态。但是在做出更改后又遇到了问题，客户端关闭时会导致下线消息还没有被服务器完全接收就断开了连接，这样服务器也没有收到客户端发来的下线请求，无法作出响应。解决办法是在用户下线时，下线请求发出到客户端完全关闭期间对线程进行休眠1S，可以用计时器完成，这样可以保证用户正确下线。（休眠的时间可以缩短以提高用户体验） 
 <br> 简单PO几张程序的效果图 <br>
- ![image](https://github.com/Lin-von/-QQ-/pics/2.jpg)
- ![image](https://github.com/Lin-von/-QQ-/pics/4.jpg)
-  ![image](https://github.com/Lin-von/-QQ-/pics/5.jpg)
-   ![image](https://github.com/Lin-von/-QQ-/pics/8.jpg)
+ ![image](https://github.com/Lin-von/-QQ-/pics/2.png)
+ ![image](https://github.com/Lin-von/-QQ-/pics/4.png)
+  ![image](https://github.com/Lin-von/-QQ-/pics/5.png)
+   ![image](https://github.com/Lin-von/-QQ-/pics/8.png)
